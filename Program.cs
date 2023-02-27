@@ -13,6 +13,16 @@ namespace sample_application
     {
         public static void Main(string[] args)
         {
+            // Add --openssl-legacy-provider to env vars as this project requires old OpenSSL alogrithms
+            var nodeOptions = Environment.GetEnvironmentVariable("NODE_OPTIONS");
+            if (nodeOptions == null)
+            {
+                Environment.SetEnvironmentVariable("NODE_OPTIONS", "--openssl-legacy-provider");
+            } else
+            {
+                Environment.SetEnvironmentVariable("NODE_OPTIONS", $"{nodeOptions} --openssl-legacy-provider");
+            }
+            
             CreateHostBuilder(args).Build().Run();
         }
 
