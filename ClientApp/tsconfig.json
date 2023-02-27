@@ -13,9 +13,13 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "skipLibCheck": true,
     "lib": [
       "es2017",
       "dom"
     ]
+  },
+  "angularCompilerOptions": {
+      "strictTemplates": true
   }
 }
